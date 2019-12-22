@@ -12,7 +12,7 @@ class Drops(commands.Cog):
         self.db = self.bot.db 
         self.col = self.bot.user_col
         self.bot.messages = defaultdict(int)
-        self.bot.codes = 13080
+        self.bot.codes = 0
         self.current_crate = ""
 
     @commands.command()
@@ -70,11 +70,11 @@ class Drops(commands.Cog):
         gem_code = random.randint(10000, 20000)
         self.bot.messages[message.channel] += 1 #add .id if needed
         if self.bot.messages[message.channel]%100 == 0:
-            self.bot.codes = code
+            self.bot.codes = secure_code
             self.current_crate = "regular"
             embed = discord.Embed(color=self.bot.embed)
             embed.title = "New Crate Drop!"
-            embed.description = f"{self.bot.gift} Use the command `c!loot {code}` to pick up this christmas crate!"
+            embed.description = f"{self.bot.gift} Use the command `c!loot {secure_code}` to pick up this christmas crate!"
             await message.channel.send(embed=embed)
             # await message.channel.send(f"{self.bot.present} **|** Dropped a crate! Use the command `!loot {code}` to pick it up..")
             return
