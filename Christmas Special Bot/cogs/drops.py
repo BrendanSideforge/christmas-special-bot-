@@ -65,7 +65,7 @@ class Drops(commands.Cog):
         if not ctx.author.id in self.bot.admin:
             return 
         await ctx.message.delete()
-        secure_code = random.randint(1001, 100000)
+        secure_code = random.randint(1001, 10000)
         self.bot.codes = secure_code
         self.current_crate = "regular"
         embed = discord.Embed(color=self.bot.embed)
@@ -79,7 +79,7 @@ class Drops(commands.Cog):
             return
         self.data = self.col.find_one()
         code = random.randint(100, 1000)
-        secure_code = random.randint(1001, 100000)
+        secure_code = random.randint(1001, 10000)
         gem_code = random.randint(10000, 20000)
         self.bot.messages[message.channel] += 1 #add .id if needed
         if self.bot.messages[message.channel]%100 == 0:
