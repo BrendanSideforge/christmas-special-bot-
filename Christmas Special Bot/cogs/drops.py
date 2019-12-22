@@ -61,10 +61,12 @@ class Drops(commands.Cog):
             self.current_crate = ""
             
     @commands.command(hidden=True)
-    async def fl(self, ctx):
+    async def drop(self, ctx):
         if not ctx.author.id in self.bot.admin:
             return 
         await ctx.message.delete()
+        self.bot.codes = secure_code
+        self.current_crate = "regular"
         secure_code = random.randint(1001, 2001)
         embed = discord.Embed(color=self.bot.embed)
         embed.title = "New Crate Drop!"
