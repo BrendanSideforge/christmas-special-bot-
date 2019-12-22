@@ -74,7 +74,7 @@ class Drops(commands.Cog):
             self.current_crate = "regular"
             embed = discord.Embed(color=self.bot.embed)
             embed.title = "New Crate Drop!"
-            embed.description = f"{self.bot.gift} Use the command `c!loot {secure_code}` to pick up this christmas crate!"
+            embed.description = f"{self.bot.gift} Use the command `!loot {secure_code}` to pick up this christmas crate!"
             await message.channel.send(embed=embed)
             # await message.channel.send(f"{self.bot.present} **|** Dropped a crate! Use the command `!loot {code}` to pick it up..")
             return
