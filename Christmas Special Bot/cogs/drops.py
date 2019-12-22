@@ -3,6 +3,7 @@ from discord.ext import commands
 from pymongo import MongoClient as mcl 
 from datetime import datetime 
 from collections import defaultdict
+import random
 
 class Drops(commands.Cog):
     def __init__(self, bot):
