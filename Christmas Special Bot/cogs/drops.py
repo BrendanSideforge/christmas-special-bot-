@@ -7,7 +7,6 @@ import random
 import textwrap
 import io
 from io import BytesIO
-import requests
 
 class Drops(commands.Cog):
     def __init__(self, bot):
