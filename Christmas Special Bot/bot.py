@@ -36,7 +36,7 @@ class Christmas(commands.Bot):
 
         self.embed = 0xf23333
 
-        self.client = mcl("mongodb://brendan:BS103261@ds061199.mlab.com:61199/bad_santa")
+        self.client = mcl("mongodb://brendan:BS103261@ds061199.mlab.com:61199/bad_santa?retryWrites=false")
         self.db = self.client['bad_santa']
         self.user_col = self.db['users']
         self.banned = self.db['banned']
