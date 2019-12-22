@@ -62,12 +62,14 @@ class Drops(commands.Cog):
             
     @commands.command(hidden=True)
     async def fl(self, ctx):
+        if not ctx.author.id in self.admin:
+            return 
         await ctx.message.delete()
         secure_code = random.randint(1001, 2001)
         embed = discord.Embed(color=self.bot.embed)
         embed.title = "New Crate Drop!"
         embed.description = f"{self.bot.gift} Use the command `!loot {secure_code}` to pick up this christmas crate!"
-        await message.channel.send(embed=embed)
+        await ctx.send(embed=embed)
 
     @commands.Cog.listener()
     async def on_message(self, message):
