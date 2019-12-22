@@ -73,6 +73,7 @@ class Christmas(commands.Bot):
             return True
 
 bot = Christmas()
+bot.remove_command("help")
 
 @commands.is_owner()
 @bot.command()
