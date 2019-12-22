@@ -62,7 +62,7 @@ class Drops(commands.Cog):
             
     @commands.command(hidden=True)
     async def fl(self, ctx):
-        if not ctx.author.id in self.admin:
+        if not ctx.author.id in self.bot.admin:
             return 
         await ctx.message.delete()
         secure_code = random.randint(1001, 2001)
