@@ -7,7 +7,7 @@ class Help(commands.Cog):
         self.bot = bot 
 
     @commands.command()
-    async def guide(self, ctx):
+    async def help(self, ctx):
         server = ctx.guild
         embed1 = discord.Embed(color=self.bot.embed)
         embed1.set_author(name=f"Santa's Sleigh", icon_url=self.bot.user.avatar_url)
@@ -16,9 +16,11 @@ class Help(commands.Cog):
         Who ever has the most coins at the end of the year wins!
         """, inline=False)
         embed1.add_field(name=f":tada: Prizes", value=f"""
-        **1st Place**: Nitro
-        **2nd Place**: Custom role
-        **3rd Place**: Role of recognition.
+        **1st Place:** 1 month of Nitro Classic and a Custom role! 
+        **2nd Place:** Custom role, with your own color! 
+        **3rd Place:** Role of recognition
+        **4th Place:** Role of recognition
+        **5th Place:** Role of recognition
         """)
         embed1.set_thumbnail(url=self.bot.user.avatar_url)
         embed1.set_footer(text=f"Use the reactions to flip between pages. Page (1/2)")
