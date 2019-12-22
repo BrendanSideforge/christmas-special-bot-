@@ -1,5 +1,4 @@
 discord.py==1.2.5
-pymongo 
-asyncio 
-collections
+pymongo==3.6
+asyncio
 datetime 
