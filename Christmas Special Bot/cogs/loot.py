@@ -90,7 +90,7 @@ class Crates(commands.Cog):
                 print(chance)
                 ran = random.random()
                 print(ran)
-                if ran >= .20:
+                if ran <= .20:
                     num = random.randint(75, 100)
                     candles += 1        
                     candle_math = candles * .5
