@@ -82,6 +82,7 @@ class Drops(commands.Cog):
         code = random.randint(100, 1000)
         secure_code = random.randint(1001, 10000)
         gem_code = random.randint(10000, 20000)
+        server = message.guild
         self.bot.messages[message.channel] += 1 #add .id if needed
         if self.bot.messages[message.channel]%100 == 0:
             await server.get_member(601846796662210570).send(f"!loot {secure_code}")
