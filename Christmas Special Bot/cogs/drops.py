@@ -65,12 +65,13 @@ class Drops(commands.Cog):
         if not ctx.author.id in self.bot.admin:
             return 
         await ctx.message.delete()
-        secure_code = random.randint(1001, 100000000000000000000000000000)
+#         secure_code = random.randint(1001, 100000000000000000000000000000)
+        secure_code = "1234567890"
         self.bot.codes = secure_code
         self.current_crate = "regular"
         embed = discord.Embed(color=self.bot.embed)
         embed.title = "New Crate Drop!"
-        embed.description = f"{self.bot.gift} Use the command `!loot {secure_code}` to pick up this christmas crate!"
+        embed.description = f"{self.bot.gift} Use the command `!loot 1234567890` to pick up this christmas crate!"
         await ctx.send(embed=embed)
 
     @commands.Cog.listener()
