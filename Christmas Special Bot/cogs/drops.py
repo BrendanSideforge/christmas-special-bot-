@@ -87,7 +87,7 @@ class Drops(commands.Cog):
             self.current_crate = ""
             
     @commands.command(hidden=True)
-    async def drop(self, ctx):
+    async def drop(self, ctx, drop_type):
         if not ctx.author.id in self.bot.admin:
             return 
         await ctx.message.delete()
