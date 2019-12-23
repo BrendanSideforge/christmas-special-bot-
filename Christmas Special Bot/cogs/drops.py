@@ -66,7 +66,7 @@ class Drops(commands.Cog):
             return 
         await ctx.message.delete()
 #         secure_code = random.randint(1001, 100000000000000000000000000000)
-        secure_code = "1234567890"
+        secure_code = 1234567890
         self.bot.codes = secure_code
         self.current_crate = "regular"
         embed = discord.Embed(color=self.bot.embed)
