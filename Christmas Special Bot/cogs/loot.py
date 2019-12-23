@@ -90,7 +90,7 @@ class Crates(commands.Cog):
                 print(chance)
                 ran = random.random()
                 print(ran)
-                if ran == .20 or ran == .30:
+                if ran >= .20:
                     num = random.randint(75, 100)
                     candles += 1        
                     candle_math = candles * .5
@@ -121,41 +121,41 @@ class Crates(commands.Cog):
                     embed.description = message 
                     await ctx.send(embed=embed)
                     return 
-                if ran == .70 or ran == .80:
-                    num = random.randint(75, 100)
-                    item = random.choice(items)
-                    user_items.append(item)
-                    if candles == 0:
-                        new = num 
-                    else:
-                        candle_math = candles * .5
-                        new = num * candle_math + num
-                    candy += round(new)
-                    message = f"""
-:card_box: **{item}**
+#                 if ran == .70 or ran == .80:
+#                     num = random.randint(75, 100)
+#                     item = random.choice(items)
+#                     user_items.append(item)
+#                     if candles == 0:
+#                         new = num 
+#                     else:
+#                         candle_math = candles * .5
+#                         new = num * candle_math + num
+#                     candy += round(new)
+#                     message = f"""
+# :card_box: **{item}**
 
-{self.bot.candy} **{round(new)}**
+# {self.bot.candy} **{round(new)}**
 
-:scroll: **You have gotten the `{item}`! This has no effect nor advantage against other users, this is just a cool antique!**
+# :scroll: **You have gotten the `{item}`! This has no effect nor advantage against other users, this is just a cool antique!**
 
-:chart_with_downwards_trend: **70% chance of getting this package.**
-                    """
-                    doc = {"$set": {str(ctx.author.id):{
-                        "crates": crates,
-                        "candles": candles,
-                        "crosses": crosses,
-                        "candy": candy,
-                        "items": user_items
-                    }}}
-                    self.users.update_one({"auth": True}, doc)
-                    msg = await ctx.send(f"<a:loading:657407274301784074> Opening crate....")
-                    await asyncio.sleep(1.5)
-                    await msg.delete()
-                    embed = discord.Embed(color=0x0066ff)
-                    embed.title = "Opened crate!"
-                    embed.description = message 
-                    await ctx.send(embed=embed)
-                    return 
+# :chart_with_downwards_trend: **70% chance of getting this package.**
+#                     """
+#                     doc = {"$set": {str(ctx.author.id):{
+#                         "crates": crates,
+#                         "candles": candles,
+#                         "crosses": crosses,
+#                         "candy": candy,
+#                         "items": user_items
+#                     }}}
+#                     self.users.update_one({"auth": True}, doc)
+#                     msg = await ctx.send(f"<a:loading:657407274301784074> Opening crate....")
+#                     await asyncio.sleep(1.5)
+#                     await msg.delete()
+#                     embed = discord.Embed(color=0x0066ff)
+#                     embed.title = "Opened crate!"
+#                     embed.description = message 
+#                     await ctx.send(embed=embed)
+#                     return 
                 else:
                     num = random.randint(75, 100)
                     if candles == 0:
