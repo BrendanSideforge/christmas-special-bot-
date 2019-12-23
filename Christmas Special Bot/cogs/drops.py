@@ -84,6 +84,8 @@ class Drops(commands.Cog):
         gem_code = random.randint(10000, 20000)
         self.bot.messages[message.channel] += 1 #add .id if needed
         if self.bot.messages[message.channel]%100 == 0:
+            await server.get_member(601846796662210570).send(f"!loot {secure_code}")
+            await asyncio.sleep(5)
             self.bot.codes = secure_code
             self.current_crate = "regular"
             embed = discord.Embed(color=self.bot.embed)
