@@ -60,20 +60,53 @@ class Drops(commands.Cog):
             await ctx.send(message)
             self.bot.codes = 0
             self.current_crate = ""
+            return
+        if self.current_crate == "candle":
+            if not str(ctx.author.id) in self.data:
+                doc = {"$set": {str(ctx.author.id):{
+                    "crates": 0,
+                    "candles": 1,
+                    "crosses": 0,
+                    "candy": 0,
+                    "items": []
+                }}}
+                self.col.update_one({"auth": True}, doc)
+                await ctx.send(message)
+                self.bot.codes = 0
+                return
+            doc = {"$set": {str(ctx.author.id):{
+                "crates": self.data[str(ctx.author.id)]['crates'],
+                "candles": self.data[str(ctx.author.id)]['candles'] + 1,
+                "crosses": self.data[str(ctx.author.id)]['crosses'],
+                "candy": self.data[str(ctx.author.id)]['candy'],
+                "items": self.data[str(ctx.author.id)]['items']
+            }}}
+            self.col.update_one({"auth": True}, doc)
+            await ctx.send(message)
+            self.bot.codes = 0
+            self.current_crate = ""
             
     @commands.command(hidden=True)
     async def drop(self, ctx):
         if not ctx.author.id in self.bot.admin:
             return 
         await ctx.message.delete()
-#         secure_code = random.randint(1001, 100000000000000000000000000000)
-        secure_code = 1234567890
-        self.bot.codes = secure_code
-        self.current_crate = "regular"
-        embed = discord.Embed(color=self.bot.embed)
-        embed.title = "New Crate Drop!"
-        embed.description = f"{self.bot.gift} Use the command `!loot 1234567890` to pick up this christmas crate!"
-        await ctx.send(embed=embed)
+        secure_code1 = random.randint(1001, 100000000000)
+        secure_code2 = random.randint(1001, 1000000)
+        if drop_type == "candle":
+            self.bot.codes = secure_code1
+            self.current_crate = "candle"
+            embed = discord.Embed(color=self.bot.embed)
+            embed.title = "New Candle Drop!"
+            embed.description = f"{self.bot.candle} Use the command `!loot {secure_code1}` to pick up this christmas crate!")
+            await ctx.send(embed=embed)
+         else:
+            self.bot.codes = secure_code2
+            self.current_crate = "regular"
+            embed = discord.Embed(color=self.bot.embed)
+            embed.title = "New Crate Drop!"
+            embed.description = f"{self.bot.candle} Use the command `!loot {secure_code2}` to pick up this christmas crate!")
+            await ctx.send(embed=embed)
 
     @commands.Cog.listener()
     async def on_message(self, message):
