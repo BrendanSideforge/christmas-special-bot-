@@ -4,6 +4,7 @@ from pymongo import MongoClient as mcl
 from datetime import datetime 
 from collections import defaultdict
 import random
+import asyncio
 
 class Drops(commands.Cog):
     def __init__(self, bot):
