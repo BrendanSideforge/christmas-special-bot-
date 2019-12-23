@@ -98,14 +98,14 @@ class Drops(commands.Cog):
             self.current_crate = "candle"
             embed = discord.Embed(color=self.bot.embed)
             embed.title = "New Candle Drop!"
-            embed.description = f"{self.bot.candle} Use the command `!loot {secure_code1}` to pick up this christmas crate!")
+            embed.description = f"{self.bot.candle} Use the command `!loot {secure_code1}` to pick up this christmas crate!"
             await ctx.send(embed=embed)
          else:
             self.bot.codes = secure_code2
             self.current_crate = "regular"
             embed = discord.Embed(color=self.bot.embed)
             embed.title = "New Crate Drop!"
-            embed.description = f"{self.bot.candle} Use the command `!loot {secure_code2}` to pick up this christmas crate!")
+            embed.description = f"{self.bot.candle} Use the command `!loot {secure_code2}` to pick up this christmas crate!"
             await ctx.send(embed=embed)
 
     @commands.Cog.listener()
