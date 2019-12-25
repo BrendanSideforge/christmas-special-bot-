@@ -110,24 +110,31 @@ class Drops(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.channel.id != 606974489397559326:
+        if message.channel.id != 649031272877785090:
             return
         self.data = self.col.find_one()
         code = random.randint(100, 1000)
-        secure_code = random.randint(1001, 10000)
+        secure_code = random.randint(1001, 2001)
         gem_code = random.randint(10000, 20000)
-        server = message.guild
         self.bot.messages[message.channel] += 1 #add .id if needed
         if self.bot.messages[message.channel]%100 == 0:
-            await server.get_member(601846796662210570).send(f"!loot {secure_code}")
-            await asyncio.sleep(5)
-            self.bot.codes = secure_code
+            self.bot.codes = code
             self.current_crate = "regular"
-            embed = discord.Embed(color=self.bot.embed)
-            embed.title = "New Crate Drop!"
-            embed.description = f"{self.bot.gift} Use the command `!loot {secure_code}` to pick up this christmas crate!"
-            await message.channel.send(embed=embed)
-            # await message.channel.send(f"{self.bot.present} **|** Dropped a crate! Use the command `!loot {code}` to pick it up..")
+            img = Image.new('RGB', (400, 100), color = (255, 61, 81))
+
+            fnt1 = ImageFont.truetype('Quicksand-Bold.ttf', size=19)
+            fnt = ImageFont.truetype('Quicksand-Bold.ttf', size=35)
+
+
+            (x, y) = (100, 100)
+            data = "testing"
+            color = 'rgb(0, 0, 0)' # black color
+
+            d = ImageDraw.Draw(img)
+            d.text((110,30), f"!loot {secure_code}", font=fnt, fill=(255, 255, 255))
+
+            img.save('drop.png')
+            await message.channel.send(file=discord.File("drop.png"), content=f"{self.bot.gift} New crate dropped! Use the image below to pick it up..")
             return
             
 def setup(bot):
