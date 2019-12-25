@@ -3,3 +3,4 @@ pymongo==3.6
 asyncio
 datetime 
 Pillow
+aiohttp
