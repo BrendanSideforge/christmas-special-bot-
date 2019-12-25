@@ -100,9 +100,9 @@ class Crates(commands.Cog):
                     new = num * candle_math + num
                     candy += round(new)
                     message = f"""
-{self.bot.candle} **1** 
+:gift: **1** 
 
-{self.bot.candy} **{round(new)}**
+:candy: **{round(new)}**
 
 :scroll: **You have gotten a new candle! Which means that you will be able to max out at 50% multplier, this will multiply your candy by 50%.**
 
@@ -165,7 +165,7 @@ class Crates(commands.Cog):
                         new = round(num * candle_math + num)
                     candy += new
                     message = f"""
-{self.bot.candy} **{new}**
+:candy: **{new}**
                     """
                     doc = {"$set": {str(ctx.author.id):{
                         "crates": crates,
