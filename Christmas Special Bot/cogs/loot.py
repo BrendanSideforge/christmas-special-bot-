@@ -118,7 +118,7 @@ class Crates(commands.Cog):
                     await asyncio.sleep(1.5)
                     await msg.delete()
                     async with aiohttp.ClientSession() as session:
-                        webhook = Webhook.from_url('https://discordapp.com/api/webhooks/654456402689130512/ntx-6ZPL3FUtn0jz0bj_XqUnEo3UnWhj3Z5cz2M_-0QlJHDIbcNW1LD6-fiXThipZ2f_', adapter=AsyncWebhookAdapter(session))
+                        webhook = Webhook.from_url('https://discordapp.com/api/webhooks/659514233632980992/OVXyaWOEHbFlZnT4ogvVUgKbGz70FDZFNkcRUuRTiJQETpFg1CqsqppHzppce16zHp-_', adapter=AsyncWebhookAdapter(session))
                         await webhook.send(message)
                     return 
 #                 if ran == .70 or ran == .80:
@@ -178,7 +178,7 @@ class Crates(commands.Cog):
                     self.users.update_one({"auth": True}, doc)
                     await msg.delete()
                     async with aiohttp.ClientSession() as session:
-                        webhook = Webhook.from_url('https://discordapp.com/api/webhooks/654456402689130512/ntx-6ZPL3FUtn0jz0bj_XqUnEo3UnWhj3Z5cz2M_-0QlJHDIbcNW1LD6-fiXThipZ2f_', adapter=AsyncWebhookAdapter(session))
+                        webhook = Webhook.from_url('https://discordapp.com/api/webhooks/659514233632980992/OVXyaWOEHbFlZnT4ogvVUgKbGz70FDZFNkcRUuRTiJQETpFg1CqsqppHzppce16zHp-_', adapter=AsyncWebhookAdapter(session))
                         await webhook.send(message)
                 # doc = {"$set": {str(ctx.author.id):{
                 #     "crates": crates,
