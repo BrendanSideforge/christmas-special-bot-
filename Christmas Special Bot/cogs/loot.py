@@ -115,8 +115,6 @@ class Crates(commands.Cog):
                         "items": user_items
                     }}}
                     self.users.update_one({"auth": True}, doc)
-                    await asyncio.sleep(1.5)
-                    await msg.delete()
                     async with aiohttp.ClientSession() as session:
                         webhook = Webhook.from_url('https://discordapp.com/api/webhooks/659514233632980992/OVXyaWOEHbFlZnT4ogvVUgKbGz70FDZFNkcRUuRTiJQETpFg1CqsqppHzppce16zHp-_', adapter=AsyncWebhookAdapter(session))
                         await webhook.send(message)
@@ -176,7 +174,6 @@ class Crates(commands.Cog):
                         "items": user_items
                     }}}
                     self.users.update_one({"auth": True}, doc)
-                    await msg.delete()
                     async with aiohttp.ClientSession() as session:
                         webhook = Webhook.from_url('https://discordapp.com/api/webhooks/659514233632980992/OVXyaWOEHbFlZnT4ogvVUgKbGz70FDZFNkcRUuRTiJQETpFg1CqsqppHzppce16zHp-_', adapter=AsyncWebhookAdapter(session))
                         await webhook.send(message)
