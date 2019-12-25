@@ -5,6 +5,7 @@ from pymongo import MongoClient as mcl
 from datetime import datetime 
 import asyncio 
 import random 
+import aiohttp
 
 
 class Crates(commands.Cog):
