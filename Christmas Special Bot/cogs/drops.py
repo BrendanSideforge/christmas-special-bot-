@@ -5,6 +5,7 @@ from datetime import datetime
 from collections import defaultdict
 import random
 import asyncio
+from PIL import Image, ImageDraw, ImageFont
 
 class Drops(commands.Cog):
     def __init__(self, bot):
