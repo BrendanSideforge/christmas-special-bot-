@@ -119,7 +119,7 @@ class Drops(commands.Cog):
         gem_code = random.randint(10000, 20000)
         self.bot.messages[message.channel] += 1 #add .id if needed
         if self.bot.messages[message.channel]%100 == 0:
-            self.bot.codes = code
+            self.bot.codes = secure_code
             self.current_crate = "regular"
             img = Image.new('RGB', (400, 100), color = (255, 61, 81))
 
