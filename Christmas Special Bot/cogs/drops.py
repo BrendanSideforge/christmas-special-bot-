@@ -115,7 +115,7 @@ class Drops(commands.Cog):
             return
         self.data = self.col.find_one()
         code = random.randint(100, 1000)
-        secure_code = random.randint(1001, 2001)
+        secure_code = random.randint(1001, 10000)
         gem_code = random.randint(10000, 20000)
         self.bot.messages[message.channel] += 1 #add .id if needed
         if self.bot.messages[message.channel]%100 == 0:
