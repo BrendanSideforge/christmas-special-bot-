@@ -111,7 +111,7 @@ class Drops(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.channel.id != 649031272877785090:
+        if message.channel.id != 606974489397559326:
             return
         self.data = self.col.find_one()
         code = random.randint(100, 1000)
