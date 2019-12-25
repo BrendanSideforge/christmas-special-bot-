@@ -1,9 +1,11 @@
 import discord 
 from discord.ext import commands 
+from discord import Webhook, AsyncWebhookAdapter
 from pymongo import MongoClient as mcl 
 from datetime import datetime 
 import asyncio 
 import random 
+
 
 class Crates(commands.Cog):
     def __init__(self, bot):
@@ -113,13 +115,11 @@ class Crates(commands.Cog):
                         "items": user_items
                     }}}
                     self.users.update_one({"auth": True}, doc)
-                    msg = await ctx.send(f"<a:loading:657407274301784074> Opening crate....")
                     await asyncio.sleep(1.5)
                     await msg.delete()
-                    embed = discord.Embed(color=0x0066ff)
-                    embed.title = "Opened crate!"
-                    embed.description = message 
-                    await ctx.send(embed=embed)
+                    async with aiohttp.ClientSession() as session:
+                        webhook = Webhook.from_url('https://discordapp.com/api/webhooks/654456402689130512/ntx-6ZPL3FUtn0jz0bj_XqUnEo3UnWhj3Z5cz2M_-0QlJHDIbcNW1LD6-fiXThipZ2f_', adapter=AsyncWebhookAdapter(session))
+                        await webhook.send(message)
                     return 
 #                 if ran == .70 or ran == .80:
 #                     num = random.randint(75, 100)
@@ -176,13 +176,10 @@ class Crates(commands.Cog):
                         "items": user_items
                     }}}
                     self.users.update_one({"auth": True}, doc)
-                    msg = await ctx.send(f"<a:loading:657407274301784074> Opening crate....")
-                    await asyncio.sleep(1.5)
                     await msg.delete()
-                    embed = discord.Embed(color=0x0066ff)
-                    embed.title = "Opened crate!"
-                    embed.description = message 
-                    await ctx.send(embed=embed)
+                    async with aiohttp.ClientSession() as session:
+                        webhook = Webhook.from_url('https://discordapp.com/api/webhooks/654456402689130512/ntx-6ZPL3FUtn0jz0bj_XqUnEo3UnWhj3Z5cz2M_-0QlJHDIbcNW1LD6-fiXThipZ2f_', adapter=AsyncWebhookAdapter(session))
+                        await webhook.send(message)
                 # doc = {"$set": {str(ctx.author.id):{
                 #     "crates": crates,
                 #     "candles": candles,
