@@ -90,24 +90,31 @@ class Drops(commands.Cog):
     @commands.command(hidden=True)
     async def drop(self, ctx, drop_type):
         if not ctx.author.id in self.bot.admin:
-            return 
+            if ctx.author.id == 505432210229297152:
+                pass
+            else:
+                return
         await ctx.message.delete()
         secure_code1 = random.randint(1001, 100000000000)
         secure_code2 = random.randint(1001, 1000000)
-        if drop_type == "candle":
-            self.bot.codes = secure_code1
-            self.current_crate = "candle"
-            embed = discord.Embed(color=self.bot.embed)
-            embed.title = "New Candle Drop!"
-            embed.description = f"{self.bot.candle} Use the command `!loot {secure_code1}` to pick up this christmas crate!"
-            await ctx.send(embed=embed)
-        else:
-            self.bot.codes = secure_code2
-            self.current_crate = "regular"
-            embed = discord.Embed(color=self.bot.embed)
-            embed.title = "New Crate Drop!"
-            embed.description = f"{self.bot.candle} Use the command `!loot {secure_code2}` to pick up this christmas crate!"
-            await ctx.send(embed=embed)
+        self.bot.codes = secure_code
+        self.current_crate = "candle"
+        img = Image.new('RGB', (400, 100), color = (255, 61, 81))
+
+        fnt1 = ImageFont.truetype('Quicksand-Bold.ttf', size=19)
+        fnt = ImageFont.truetype('Quicksand-Bold.ttf', size=30)
+
+
+        (x, y) = (100, 100)
+        data = "testing"
+        color = 'rgb(0, 0, 0)' # black color
+
+        d = ImageDraw.Draw(img)
+        d.text((110,30), f"!loot {secure_code1}", font=fnt, fill=(255, 255, 255))
+
+        img.save('drop.png')
+        await message.channel.send(file=discord.File("drop.png"), content=f"{self.bot.gift} **{ctx.author}**: has dropped a candle.")
+
 
     @commands.Cog.listener()
     async def on_message(self, message):
