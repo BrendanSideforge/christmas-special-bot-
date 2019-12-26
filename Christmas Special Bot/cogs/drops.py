@@ -98,7 +98,7 @@ class Drops(commands.Cog):
         await ctx.message.delete()
         secure_code1 = random.randint(1001, 100000000000)
         secure_code2 = random.randint(1001, 1000000)
-        self.bot.codes = secure_code
+        self.bot.codes = secure_code1
         self.current_crate = "candle"
         img = Image.new('RGB', (400, 100), color = (255, 61, 81))
 
