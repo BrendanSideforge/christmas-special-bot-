@@ -90,10 +90,11 @@ class Drops(commands.Cog):
     @commands.command(hidden=True)
     async def drop(self, ctx, drop_type):
         if not ctx.author.id in self.bot.admin:
-            if ctx.author.id == 505432210229297152:
-                pass
-            else:
-                return
+#             if ctx.author.id == 505432210229297152:
+#                 pass
+#             else:
+#                 return
+            return
         await ctx.message.delete()
         secure_code1 = random.randint(1001, 100000000000)
         secure_code2 = random.randint(1001, 1000000)
