@@ -114,7 +114,7 @@ class Drops(commands.Cog):
         d.text((110,30), f"!loot {secure_code1}", font=fnt, fill=(255, 255, 255))
 
         img.save('drop.png')
-        await message.channel.send(file=discord.File("drop.png"), content=f"{self.bot.gift} **{ctx.author}**: has dropped a candle.")
+        await ctx.send(file=discord.File("drop.png"), content=f"{self.bot.gift} **{ctx.author}**: has dropped a candle.")
 
 
     @commands.Cog.listener()
