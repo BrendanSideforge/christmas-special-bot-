@@ -106,12 +106,12 @@ class Drops(commands.Cog):
         fnt = ImageFont.truetype('Quicksand-Bold.ttf', size=30)
 
 
-        (x, y) = (70, 100)
+        (x, y) = (30, 100)
         data = "testing"
         color = 'rgb(0, 0, 0)' # black color
 
         d = ImageDraw.Draw(img)
-        d.text((110,30), f"!loot {secure_code1}", font=fnt, fill=(255, 255, 255))
+        d.text((80,30), f"!loot {secure_code1}", font=fnt, fill=(255, 255, 255))
 
         img.save('drop.png')
         await ctx.send(file=discord.File("drop.png"), content=f"{self.bot.gift} **{ctx.author}**: has dropped a candle.")
