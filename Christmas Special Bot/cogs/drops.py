@@ -106,7 +106,7 @@ class Drops(commands.Cog):
         fnt = ImageFont.truetype('Quicksand-Bold.ttf', size=30)
 
 
-        (x, y) = (100, 100)
+        (x, y) = (70, 100)
         data = "testing"
         color = 'rgb(0, 0, 0)' # black color
 
