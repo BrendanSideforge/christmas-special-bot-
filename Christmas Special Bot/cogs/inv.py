@@ -54,7 +54,7 @@ class Inventory(commands.Cog):
                     items += "<:christmas_tree1:657790748707651602> "
                     pass
                 if item == "Air's Throne":
-                    items += ":crown: "
+                    items += ":crown: **Dan's Throne.**"
             if not items:
                 items="You currently have no items."
             candy = "{:,}".format(self.data[str(user.id)]['candy'])
